@@ -1,4 +1,4 @@
-const first_contract = artifacts.require("first_contract");
+    const first_contract = artifacts.require("first_contract");
 
 contract("first_contract", accounts => {
     it("constuctor should set the message correctly", async () => {
