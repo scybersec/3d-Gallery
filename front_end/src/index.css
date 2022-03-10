@@ -11,3 +11,266 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#Login{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}
+
+#Login_Logo{
+  border:5px green solid;
+  background-color: white;
+  border-radius:100%;
+  color:white;
+  height: 10em;
+  margin-bottom:5%;
+}
+input[type=text]{
+  padding:5%;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:100%;
+  text-align: center;
+}
+input[type=submit]{ 
+  padding:5%;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:110%;
+}
+
+#Navigation ul{
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 1%;
+  width: auto;
+  background-color: green;
+  padding:0;
+}
+
+#Navigation li{
+  text-decoration: none;
+  list-style: none;
+  color: white;
+  font-size: 28px;
+  padding:1.3em;
+}
+
+a:link{
+  text-decoration: none;
+}
+
+li:hover{
+  background-color: lightgreen;
+}
+
+#HomeContainer{
+  justify-content: center;
+  text-align: center;
+  width:80%;
+  margin:auto;
+  overflow: hidden;
+  background-color: white;
+}
+
+#About{
+  float: left;
+  border-right: 1px solid lightgray;
+  margin-left:5%;
+  font-size: 1.5em;
+}
+
+#About p{
+  border:2px black solid;
+  border-radius:100%;
+  color:white;
+  height: 9em;
+  margin-bottom:5%;
+}
+
+#About #FollowButton{
+  color:white;
+  height:4em;
+  width:17em;
+  background-color: green;
+  border: 1px white solid;
+  border-radius: 1em;
+}
+
+#Trending{
+  display: flex;
+  flex-direction: column;
+  width:20%;
+  float:right;
+  border-left: 1px solid lightgray;
+  margin-right:11%;
+}
+
+#UserPics{
+  display: inline-flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  width:40%;
+  overflow-y: auto;
+  height:30em;
+  width: auto;
+}
+
+#UserPics #P1{
+  margin-top:66em;
+}
+
+#UserPics img{
+  height:30em;
+  width:30em;
+}
+
+#UserPics::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+#UserPics::-webkit-scrollbar-track {
+  background: lightgreen;        /* color of the tracking area */
+}
+
+#UserPics::-webkit-scrollbar-thumb {
+  background-color: white;    /* color of the scroll thumb */
+  border: 1px solid lightgreen
+}
+
+#Header h2{
+  text-align: center;
+  font-size: 30px;
+
+}
+
+#HomePage #Welcome{
+  display: flex;
+  flex-direction: column;
+  margin-top:-16px;
+  background-color: #EBFFE1;
+  padding-top:3em;
+  padding-bottom: 10em;;
+}
+
+#HomePage{
+  width: auto;
+  overflow: hidden;
+}
+
+#HomePage #Welcome button{
+  height: 3em;
+  width: 15em;
+  border-radius: 2em;
+  background-color: green;
+  color: White;
+  border: solid black 1px;
+}
+
+
+#HomePage #Welcome #WelcomePic{
+  float: right;
+  margin-left:45em;  
+  margin-top:-19em;
+}
+
+#HomePage #Welcome #WelcomePic img{
+    height:30em;
+    margin-left:4em;
+}
+
+
+#HomePage #Welcome #WelcomePic h2{
+  float: initial;
+  margin-top:-3em;
+  margin-bottom: 1em;
+  margin-left:8em;
+
+}
+
+#HomePage #Welcome #WelcomePic h2 span{
+  border: 2px black solid;
+  padding:.3em;
+  border-radius: 3em;
+  
+}
+
+#Welcome #JoinNow{
+  font-size: 25px;
+  float:left;
+  margin-left:6em;
+  width:30%;
+}
+
+#HomePage #Info{
+  background-color:rgb(135, 209, 138);
+  text-align: left;
+  line-height: 4em;
+  font-size: 20px;
+  margin-top:0;
+  padding:4em;
+  
+}
+
+#HomePage #Info h2{
+  margin-left:40%;
+
+}
+
+#MeetTheTeam{
+  background-color: rgb(5, 162, 62);
+  margin-top:-1.6em;
+}
+
+#MeetTheTeam #MeetTheTeamTitle{
+  background-color: rgb(0, 129, 52);
+  text-align: center;
+  padding:2em;
+  font-size: 30px;
+}
+
+#MeetTheTeam h3{
+  float: left;
+  background-color: rgb(0,129,52);
+  width:24%;
+  padding:2em;
+  border-radius: 1.5em;
+  margin-left:13em;
+  font-size:25px;
+}
+
+#MeetTheTeam #Contact{
+  float:right;
+  text-align: center;
+  margin-right:10em;
+  font-size:20px;
+}
+
+#MeetTheTeam #Contact input{
+  width:20em;
+  border: none;
+}
+
+#MeetTheTeam #Contact textarea{
+  height:4em;
+  height:10em;
+  width:25em;
+}
+
+#MeetTheTeam #Map{
+  margin-top:20em;
+}
+
+#MeetTheTeam #Map img{
+  height:30em;
+  width:50em;
+  margin-left:20em;
+  padding-bottom: 5em;
+}
+
+
