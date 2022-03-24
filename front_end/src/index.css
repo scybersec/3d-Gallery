@@ -27,18 +27,23 @@ code {
   height: 10em;
   margin-bottom:5%;
 }
-input[type=text]{
+
+#Login_Info input[type=text]{
   padding:5%;
   margin-bottom:5%;
   border:1px black solid;
   width:100%;
   text-align: center;
 }
-input[type=submit]{ 
-  padding:5%;
+#Login_Info button{ 
+  padding:1em;
   margin-bottom:5%;
   border:1px black solid;
-  width:110%;
+  width:15em;
+  background-color: green;
+  border-radius: 10em;
+  color:white;
+  font-weight:bold
 }
 
 #Navigation ul{
@@ -50,6 +55,14 @@ input[type=submit]{
   width: auto;
   background-color: green;
   padding:0;
+}
+
+#HomePageTitle{
+  font-size: 3em;
+  background-color: rgb(0, 129, 52);
+  color:white;
+  padding:.1%;
+  text-align: center;
 }
 
 #Navigation li{
@@ -142,6 +155,41 @@ li:hover{
   background-color: white;    /* color of the scroll thumb */
   border: 1px solid lightgreen
 }
+
+.popup-content input[type=submit] {
+  padding:5%;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:110%;
+  border-radius: 5em;
+  color:white;
+  background-color: green;
+}
+
+.popup-content input[type=file] {
+  padding:5%;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:100%;
+  border-radius: 5em;
+  color:white;
+  background-color: green;
+}
+
+.popup-content input[type=file] {
+  padding:5%;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:100%;
+  border-radius: 5em;
+  color:white;
+  background-color: green;
+}
+
+.popup-arrow{
+  display: none;
+}
+
 
 #Header h2{
   text-align: center;
@@ -254,6 +302,10 @@ li:hover{
 #MeetTheTeam #Contact input{
   width:20em;
   border: none;
+  padding:5%;
+  margin-bottom:5%;
+  width:90%;
+  text-align: center;
 }
 
 #MeetTheTeam #Contact textarea{

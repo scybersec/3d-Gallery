@@ -6,7 +6,9 @@ import MapPic from './map capture.png'
 function HomePage() {
     return(
         <section id="HomePage">
-            <Header />
+            <article id="HomePageTitle">
+                <h4>Genesis</h4>
+            </article>
 
             <article id="Welcome">
                 <article id="JoinNow">

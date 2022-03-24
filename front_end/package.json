@@ -8,6 +8,8 @@
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
     "ipfs-http-client": "^56.0.1",
     "popup": "^0.0.3",
     "react": "^17.0.2",
@@ -17,6 +19,7 @@
     "react-three-fiber": "^6.0.13",
     "reactjs-popup": "^2.0.5",
     "three": "^0.137.5",
+    "use-local-storage-state": "^16.0.0",
     "web-vitals": "^2.1.4",
     "web3": "^1.7.0"
   },
