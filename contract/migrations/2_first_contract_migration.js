@@ -1,5 +1,5 @@
-const first_contract_migration = artifacts.require("first_contract");
+const Contacts = artifacts.require("./Contacts.sol");
 
-module.exports = function (deployer) {
-  deployer.deploy(first_contract_migration, 10);
+module.exports = function(deployer) {
+  deployer.deploy(Contacts);
 };
