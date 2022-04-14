@@ -16,7 +16,7 @@ function Login() {
         const {ethereum} = window;
 
         if(!ethereum) {
-            console.log("Make sure you ahve Metamask installed!")
+            console.log("Make sure you have Metamask installed!")
             return;
         }
         else{
@@ -64,12 +64,17 @@ function Login() {
   }
 
   const mintNftButton = () => {
-    return (
-      <button onClick={mintNftHandler}>
-        Login
-      </button>
-    )
+    return navigate('/Home')
   }
+
+  useEffect(() => { // If the Account is changed the page will refresh
+    const {ethereum} = window;
+    if (ethereum){
+      window.ethereum.on('accountsChanged', () => {
+      window.location.reload();
+      })
+  }
+  })
 
   useEffect(() => {
     checkWalletIsConnected();

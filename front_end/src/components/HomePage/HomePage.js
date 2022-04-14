@@ -1,13 +1,16 @@
 import React from "react";
 import Header from "../Header";
 import WelcomePic from './lowpoly.png'
+import Logo from './Header.png'
+import SecondLogo from './Headeredit.png'
 import MapPic from './map capture.png'
 
 function HomePage() {
     return(
         <section id="HomePage">
             <article id="HomePageTitle">
-                <h4>Genesis</h4>
+                <img src={SecondLogo}/>
+                {/*<h4>Genesis</h4>*/}
             </article>
 
             <article id="Welcome">

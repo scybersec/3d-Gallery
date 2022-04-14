@@ -6,11 +6,11 @@ function Navigation() {
     return(
     <nav id="Navigation">
         <ul>
-            <Link to=""><li>Nav</li></Link>
+            <Link to="/Home"><li>Home</li></Link>
             <Link to =""><li>Nav2</li></Link>
             <Link to =""><li>Nav3</li></Link>
             <Link to =""><li>Nav4</li></Link>
-            <Link to =""><li>Nav5</li></Link>
+            <Link to ="/Settings"><li>Settings</li></Link>
         </ul>
     </nav>
     )}
