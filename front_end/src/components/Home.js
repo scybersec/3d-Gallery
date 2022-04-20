@@ -2,9 +2,7 @@
 /* Notes: .send the transaction when they save the hash*/
 import React, { useDebugValue, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import Navigation from "./Navigation";
 import Header from "./Header";
-import TestPic from './TestImages/TestImage.jpg';
 import {useState} from 'react'
 import Popup from 'reactjs-popup';
 import {create} from 'ipfs-http-client'
@@ -12,7 +10,6 @@ import useLocalStorageState from 'use-local-storage-state'
 import { CONTACT_ABI, CONTACT_ADDRESS} from './config.js'
 import Web3 from "web3";
 import Modal from "react-modal";
-import CreateAccount from "./CreateAccount";
 import { keepTheme } from '../theme';
 import EditNameLogo from './EditName.ico'
 

@@ -1,12 +1,8 @@
-/* Component for the Home Page */
-/* Notes: .send the transaction when they save the hash*/
+/* Component for the Settings Page */
 import React, { useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import Navigation from "./Navigation";
 import Header from "./Header";
-import TestPic from './TestImages/TestImage.jpg';
 import {useState} from 'react'
-import Popup from 'reactjs-popup';
 import {create} from 'ipfs-http-client'
 import useLocalStorageState from 'use-local-storage-state'
 import { CONTACT_ABI, CONTACT_ADDRESS} from './config.js'
@@ -25,7 +21,6 @@ function Settings() {
       })
 
       const [Contract, setContract] = useState();
-      const [contacts, setContacts] = useState([]);
       const [account, setAccount] = useState('');
       let navigate = useNavigate()
 
@@ -65,22 +60,7 @@ function Settings() {
             
       }, []);//Empty array means it only checks once
 
-      /*TEST*/
-      const [testName, setTestName] = useLocalStorageState('name','Not Selected')
-      const [changename, setchangename] = useState('')
-      const createAccount = (event) =>{
-          Contract.methods.createAcount(changename).send({from: account})
-      }
-      const setName = (event) =>{
-          Contract.methods.setname(changename).send({from: account})
-      }
-      const getName = (event) =>{
-          Contract.methods.getname().call({from:account}).then((response)=>{
-              console.log(response)
-              setTestName(response)
-          })
-      }
-      /*TEST*/
+     
       useEffect(() => {
         keepTheme();
     })
@@ -105,13 +85,6 @@ function Settings() {
             setTogClass('light')
         }
     }, [theme])
-
-
-    /*console.log(`This is the FIRST Storage: ${localStorage.getItem('picture')}`)
-    console.log(`This is the SECOND Storage: ${localStorage.getItem('pictureTwo')}`)
-    console.log(`This is the THIRDS Storage: ${localStorage.getItem('pictureThree')}`)
-    console.log(`Key: ${localStorage.key('picture')}`)
-    console.log('PicStore Is: '+ picStore)*/
 
 
     return(
