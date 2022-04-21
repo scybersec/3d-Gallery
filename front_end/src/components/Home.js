@@ -1,7 +1,7 @@
 /* Component for the Home Page */
 /* Notes: .send the transaction when they save the hash*/
-import React, { useDebugValue, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import {useState} from 'react'
 import Popup from 'reactjs-popup';
@@ -35,18 +35,12 @@ function Home() {
       })
 
       const [Contract, setContract] = useState();
-      const [contacts, setContacts] = useState([]);
       const [account, setAccount] = useState('');
 
 
       const [hash,setHash] = useState("QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ") /* Hash for the first picture */
       const [buffer, setBuffer] = useState(null) /* Hook for the Buffer */
-      const [secondhash,setSecondHash] = useState('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ') /* Hash for the second picture */
-      const [thirdhash,setThirdHash] = useState('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ') /* Hash for the third picture */
-      const [picStore, setPicStore] = useLocalStorageState('picture','QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ') /* Stores the first picture into the local storage */
-      const [picStoreTwo, setPicStoreTwo] = useLocalStorageState('picturetwo','QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ') /* Stores the second picture into the local storage */
-      const [picStoreThree, setPicStoreThree] = useLocalStorageState('picturethree','QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ') /* Stores the third picture into the local storage */
-      
+     
       const [picTest,setPicTest] = useLocalStorageState('picture_one','QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
       const [picTestTwo,setPicTestTwo] = useLocalStorageState('picture_two','QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
       const [picTestThree,setPicTestThree] = useLocalStorageState('picture_three','QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
@@ -57,19 +51,9 @@ function Home() {
 
 
       useEffect(() => { // Once the page is loaded, useEffect checks to see if the local storage is undefined. If so, it inputs the default hash into the local storage.
-        /*if(picTest == undefined){
-            setPicTest('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
-            setPicTestTwo('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
-            setPicTestThree('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
-            setPicTestFour('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
-            setPicTestFive('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
-
-        }*/
-
         
             async function load() {
                 const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
-            //const accounts = await web3.eth.requestAccounts();
             
             const {ethereum} = window
             const accounts = await ethereum.request({method: 'eth_accounts'});
@@ -90,31 +74,15 @@ function Home() {
 
     
             const newcontract = new web3.eth.Contract(CONTACT_ABI, CONTACT_ADDRESS);
-            //console.log(account)
 
            
             setContract(newcontract);
     
-            /*const counter = await contactList.methods.count().call();*/
-
-    
-            /*for (var i = 1; i <= counter; i++) {
-              const contact = await contactList.methods.contacts(i).call();
-              setContacts((contacts) => [...contacts, contact]);
-            }*/
             }
     
             load();
-            
-            
+               
       }, []);//Empty array means it only checks once
-
-      //Test Effect
-      
-
-      //console.log("THIS IS THE ACCOUNT: " + account);
-      //console.log(Contract)
-
 
       const captureFile = (event) =>{ /* function to take a selected file and turn it into a integer array, then it is set as the buffer */
         event.preventDefault();
@@ -140,7 +108,6 @@ function Home() {
             Contract.methods.addPicture(response.path).send({from: account})
           setHash(response.path)
         })
-        setPicStore(hash)
       }
 
       const getPicturesOne = (event) =>{
@@ -186,9 +153,7 @@ function Home() {
         const [testName, setTestName] = useLocalStorageState('name','Not Selected')
         const [changename, setchangename] = useState('')
 
-      const createAccount = (event) =>{
-          Contract.methods.createAcount('Testing Name').send({from: account})
-      }
+      
       const setName = (event) =>{
             Contract.methods.setname(changename).send({from: account})
     }
@@ -199,45 +164,13 @@ function Home() {
               closeModal()
           })
       }
-      /*TEST*/
 
-      const onSecondSubmit = (event) =>{
-        event.preventDefault()
-        /*console.log('I got here 1')*/
-        const resoult =  ipfs.add(buffer)
-        /*console.log(`This is the Hash: ${secondhash}`)*/
-        /*console.log("This Is the buffer" + buffer)*/
-        resoult.then((response)=> {
-          setSecondHash(response.path)
-        })
-        setPicStoreTwo(secondhash)
-      }
-
-      
-      const onThirdSubmit = (event) =>{
-        event.preventDefault()
-        /*console.log('I got here 1')*/
-        const resoult =  ipfs.add(buffer)
-        /*console.log(`This is the Hash: ${thirdhash}`)*/
-        /*console.log("This Is the buffer" + buffer)*/
-        resoult.then((response)=> {
-          setThirdHash(response.path)
-        })
-        setPicStoreThree(thirdhash)
-      }
-    
 
     const [follow, setFollow] = useState('Follow');
 
     let removepic = (pics) =>{
         pics('QmWp9s7onE9wJPFBng6swV5n65GHNKeoePsgWKLUikPHaQ')
     }
-
-    /*console.log(`This is the FIRST Storage: ${localStorage.getItem('picture')}`)
-    console.log(`This is the SECOND Storage: ${localStorage.getItem('pictureTwo')}`)
-    console.log(`This is the THIRDS Storage: ${localStorage.getItem('pictureThree')}`)
-    console.log(`Key: ${localStorage.key('picture')}`)
-    console.log('PicStore Is: '+ picStore)*/
 
      
     useEffect(() => {
@@ -315,9 +248,6 @@ function Home() {
 
                 </Modal>
                 <h4>{testName}</h4>
-                {/*<button type="submit" onClick={() => createAccount()}>Create Account</button>
-                <button type="button" onClick={() => setName()}>Set Name</button>
-                <button type="button" onClick={() => getName()}>Get Name</button>*/}
                 <button type="button" id="FollowButton" onClick={() => setFollow('Following')}>{follow}</button>
             </section>
 
@@ -331,31 +261,12 @@ function Home() {
     
                         <input type='submit' value='Refresh' onClick={() => getPicturesOne()} />
                         
-                        <form onSubmit={() => removepic(setPicStore)}>
+                        <form>
                             <input type="submit" value='Delete' />
                         </form>   
                     </Popup>
                 </p>
-            
-            
-                
-               {/* <p id="P2">
-                    <Popup position='center center' trigger = {<img src={`https://ipfs.infura.io/ipfs/${picStoreTwo}`}/> }>
-                        <form onSubmit={onSecondSubmit}>
-                            <input type='file' onChange={captureFile} />
-                            <input type='submit' />
-                        </form>
-                        <form onSubmit={onSecondSubmit}>
-                            <input type='submit' value='Save' onClick={() => setPicStore(hash)}/> 
-                        </form>
-                        <form onSubmit={() => removepic(setPicStoreTwo)}>
-                            <input type="submit" value='Delete' />
-                        </form>   
-                    </Popup>
-                    </p>
-                */}
 
-                
 
                         <p id="P2">
                             <Popup position='center center' trigger ={<img src={`https://ipfs.infura.io/ipfs/${picTestTwo}`}/>}>
@@ -366,28 +277,12 @@ function Home() {
 
                                 <input type='submit' value='Refresh' onClick={() => getPicturesTwo()} />
 
-                                <form onSubmit={() => removepic(setPicStoreTwo)}>
+                                <form>
                                     <input type="submit" value='Delete' />
                                 </form>   
                             </Popup>
                         </p>
   
-
-                   {/* <p id="P3">
-                    <Popup position='center center' trigger = {<img src={`https://ipfs.infura.io/ipfs/${picStoreThree}`}/> }>
-                        <form onSubmit={onThirdSubmit}>
-                            <input type='file' onChange={captureFile} />
-                            <input type='submit' />
-                        </form>
-                        <form onSubmit={onThirdSubmit}>
-                            <input type='submit' value='Save' /*onClick={() => setPicStore(hash)}/>
-                        </form>
-                        <form onSubmit={() => removepic(setPicStoreThree)}>
-                            <input type="submit" value='Delete' />
-                        </form>   
-                    </Popup>
-                    </p>
-                    */}
 
                         <p id="P3">
                             <Popup position='center center' trigger ={<img src={`https://ipfs.infura.io/ipfs/${picTestThree}`}/>}>
@@ -398,7 +293,7 @@ function Home() {
 
                                 <input type='submit' value='Refresh' onClick={() => getPicturesThree()} />
 
-                                <form onSubmit={() => removepic(setPicStoreThree)}>
+                                <form>
                                     <input type="submit" value='Delete' />
                                 </form>   
                             </Popup>
@@ -413,7 +308,7 @@ function Home() {
 
                                 <input type='submit' value='Refresh' onClick={() => getPicturesFour()} />
 
-                                <form onSubmit={() => removepic(setPicStoreThree)}>
+                                <form>
                                     <input type="submit" value='Delete' />
                                 </form>   
                             </Popup>
@@ -428,7 +323,7 @@ function Home() {
 
                                 <input type='submit' value='Refresh' onClick={() => getPicturesFive()} />
 
-                                <form onSubmit={() => removepic(setPicStoreThree)}>
+                                <form>
                                     <input type="submit" value='Delete' />
                                 </form>   
                             </Popup>

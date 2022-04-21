@@ -1,10 +1,9 @@
 /* Component for the Settings Page */
 import React, { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "./Header";
 import {useState} from 'react'
 import {create} from 'ipfs-http-client'
-import useLocalStorageState from 'use-local-storage-state'
 import { CONTACT_ABI, CONTACT_ADDRESS} from './config.js'
 import Web3 from "web3";
 import { keepTheme } from '../theme';
@@ -27,9 +26,7 @@ function Settings() {
 
       useEffect(() => { // Once the page is loaded, useEffect checks to see if the local storage is undefined. If so, it inputs the default hash into the local storage.
             async function load() {
-                const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
-            //const accounts = await web3.eth.requestAccounts();
-            
+                const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');            
     
             const newcontract = new web3.eth.Contract(CONTACT_ABI, CONTACT_ADDRESS);
 
@@ -47,13 +44,6 @@ function Settings() {
 
             setContract(newcontract);
     
-            /*const counter = await contactList.methods.count().call();*/
-
-    
-            /*for (var i = 1; i <= counter; i++) {
-              const contact = await contactList.methods.contacts(i).call();
-              setContacts((contacts) => [...contacts, contact]);
-            }*/
             }
     
             load();

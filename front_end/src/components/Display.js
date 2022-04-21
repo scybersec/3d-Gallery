@@ -8,6 +8,7 @@ import Home from "./Home"
 import HomePage from './HomePage/HomePage';
 import Settings from './Settings';
 import CreateAccount from "./CreateAccount";
+import FriendsList from "./FriendsList";
 
 function Display() {
     return(
@@ -19,6 +20,7 @@ function Display() {
                 <Route path='/Home' element={<Home />} />
                 <Route path='/Settings' element={<Settings />} />
                 <Route path='/CreateAccount' element={<CreateAccount />} />
+                <Route path='/FriendsList' element={<FriendsList />} />
             </Routes>
         </Router>
     )

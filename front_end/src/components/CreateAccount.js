@@ -1,17 +1,12 @@
 /* Component for the Home Page */
 /* Notes: .send the transaction when they save the hash*/
 import React, { useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import Navigation from "./Navigation";
-import Header from "./Header";
-import TestPic from './TestImages/TestImage.jpg';
+import { useNavigate } from "react-router-dom";
 import {useState} from 'react'
-import Popup from 'reactjs-popup';
 import {create} from 'ipfs-http-client'
 import useLocalStorageState from 'use-local-storage-state'
 import { CONTACT_ABI, CONTACT_ADDRESS} from './config.js'
 import Web3 from "web3";
-import Modal from 'react-modal'
 import SecondLogo from './HomePage/Headeredit.png'
 
 
@@ -24,16 +19,13 @@ function CreateAccount() {
       })
 
       const [Contract, setContract] = useState();
-      const [contacts, setContacts] = useState([]);
       const [account, setAccount] = useState('');
       let navigate = useNavigate()
 
 
       useEffect(() => { // Once the page is loaded, useEffect checks to see if the local storage is undefined. If so, it inputs the default hash into the local storage.
             async function load() {
-                const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');
-            //const accounts = await web3.eth.requestAccounts();
-            
+                const web3 = new Web3(Web3.givenProvider || 'http://localhost:7545');            
     
             const newcontract = new web3.eth.Contract(CONTACT_ABI, CONTACT_ADDRESS);
 
@@ -50,14 +42,7 @@ function CreateAccount() {
                 }
 
             setContract(newcontract);
-    
-            /*const counter = await contactList.methods.count().call();*/
 
-    
-            /*for (var i = 1; i <= counter; i++) {
-              const contact = await contactList.methods.contacts(i).call();
-              setContacts((contacts) => [...contacts, contact]);
-            }*/
             }
     
             load();
@@ -71,9 +56,7 @@ function CreateAccount() {
           Contract.methods.createAcount(changename).send({from: account})
           setcreateacc(true)
       }
-      const setName = (event) =>{
-          Contract.methods.setname(changename).send({from: account})
-      }
+      
       const getName = (event) =>{
           Contract.methods.getname().call({from: account}).then((response)=>{
               console.log(response)
@@ -115,13 +98,6 @@ function CreateAccount() {
             </article>
           )
       }
-
-
-    /*console.log(`This is the FIRST Storage: ${localStorage.getItem('picture')}`)
-    console.log(`This is the SECOND Storage: ${localStorage.getItem('pictureTwo')}`)
-    console.log(`This is the THIRDS Storage: ${localStorage.getItem('pictureThree')}`)
-    console.log(`Key: ${localStorage.key('picture')}`)
-    console.log('PicStore Is: '+ picStore)*/
 
 
     return(

@@ -1,11 +1,7 @@
 /* Component for the Login Page */
 import React, {useState,useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DBox from "./3D_Background/Login3D";
-import Web3 from 'web3'
-import contract from './config.js';
-
-const contractAddress = '0x5dF57eE689dBd78975aaB78b43Ef47727AF2CbBB'
 
 
 function Login() {
@@ -51,9 +47,6 @@ function Login() {
         }
      }
 
-    const mintNftHandler = () => {
-        return navigate('/Home')
-     }
 
   const connectWalletButton = () => {
     return (

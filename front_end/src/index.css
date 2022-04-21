@@ -376,6 +376,37 @@ li:hover{
   font-size: 1.5em;
 }
 
+#FriendsList h3{
+  list-style: none;
+  text-decoration: none;
+  font-size: 3em;
+  text-align: center;
+  margin-right:auto;
+}
+#FriendsList ul{
+  margin:auto;
+  padding:auto;
+}
+
+#FriendsList li{
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em;
+  margin:1em;
+}
+
+#FriendsList button{
+  padding:1em;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:15em;
+  background-color: green;
+  border-radius: 10em;
+  color:white;
+  font-weight:bold
+}
+
+
 
 
 
