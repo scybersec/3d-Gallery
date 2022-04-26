@@ -19,7 +19,9 @@ code {
   transform: translate(-50%,-50%);
 }
 
-#Login_Logo{
+
+
+#Login_Logo img{
   border:5px green solid;
   background-color: white;
   border-radius:100%;
@@ -393,6 +395,7 @@ li:hover{
   text-decoration: none;
   font-size: 2em;
   margin:1em;
+  margin-left:0em;
 }
 
 #FriendsList button{

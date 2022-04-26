@@ -2,6 +2,7 @@
 import React, {useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import DBox from "./3D_Background/Login3D";
+import LoginLogo from './HomePage/LoginLogoTwo.png';
 
 
 function Login() {
@@ -79,7 +80,7 @@ function Login() {
             <DBox /> {/*Imported 3D Component*/} 
 
             <section id="Login">
-                <article id="Login_Logo"></article>
+                <article id="Login_Logo"> <img src={LoginLogo} /></article>
 
                 <article id="Login_Info">
                     

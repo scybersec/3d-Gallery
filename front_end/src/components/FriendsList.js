@@ -175,6 +175,7 @@ function FriendsList() {
       }
 
 
+
     const [follow, setFollow] = useState('Follow');
 
     let removepic = (pics) =>{
@@ -275,6 +276,87 @@ function FriendsList() {
         )
     }
 
+    const [addfriends , setaddFriends] = useState('')
+    const [testFri, settestFri] = useState([])
+    const addFrind = (event) =>{
+        Contract.methods.addFrind(addfriends).send({from: account})
+    }
+
+    const getfriend = (event) =>{
+        Contract.methods.getFriendsAddress().call({from:account}).then((response)=>{
+            //console.log(response)
+            settestFri(response)
+            //console.log(testFri)
+        })
+    }
+
+   
+    /*useEffect(() => {
+        const count = testFri.length
+
+        for (let n=0; n < count.length; n++){
+            Contract.methods.getname().call({from:Friends[n]}).then((response)=>{
+                console.log(response)
+                setFriendsName(response)
+            })
+
+        }
+    })*/
+
+    const [friendsnames, setFriendsnames] = useState([])
+    const [testFname, settestFname] = useState([])
+
+
+    const testgetname = () =>{
+        const count = testFri.length
+        //console.log("TEST")
+        
+
+        for (let n=0; n < count; n++){
+            Contract.methods.getname().call({from:Friends[n]}).then((response)=>{
+                //console.log(response)
+                //setFriendsnames(response)
+                setFriendsnames(friendsnames => [response,...friendsnames]);
+                
+            })
+
+        }
+        let testing = [...new Set(friendsnames)]
+        settestFname(testing)
+        console.log(testFname)
+        //console.log('ACCOUNT NAME: ' + testFname)
+
+    }
+
+    
+
+    useEffect(() => {
+        async function loadnames(){
+            return getfriend()
+            
+            
+        }
+        loadnames();
+        
+      } )
+
+      useEffect(() => {
+        async function loadnamestest(){
+            if(testFname.length !== testFri.length){
+             return testgetname()
+            }
+
+            else{
+                return
+            }
+            
+            
+        }
+        loadnamestest();
+      } )
+
+
+
     const DFrinendpage = () =>{
         return(
             <section id="HomeContainer">
@@ -284,12 +366,29 @@ function FriendsList() {
             </section>
             
             <section id="FriendsList">
+                <h3>Add Friend</h3> <input placeholder="Enter Username" type='text' onChange={(e) => {setaddFriends(e.target.value)}}></input><br />
+                <button type="submit" onClick={() => addFrind()}>Add Friend</button><br />
+                {/*<button type="submit" onClick={() => getfriend()}>Get Friend</button>*/} {/*Get Friends through effect not through button*/}
                 <h3>Friends List</h3>
+                
                 {/*<h4 onClick={() => navigate('/FriendsPage')}>{FriendsName}</h4>*/}
-                <ul>
+                {//<button type="button" onClick={()=>{testgetname()}} >TEST</button>
+                /*<button type="button" onClick={()=>{getfriend()}} >TEST FRIENDS</button>*/}
+
+                
+                {testFname.map((names) =>{
+                    return(
+                    <ul>
+                    <li onClick={() => {setFriendPage(names)}}>{names}<br /><button onClick={() => {setShowPage(true)}}>SHOW</button></li>
+                    </ul>
+                    )
+                })}
+                {/*testFri.map((name)=>{
+                    return (<p>{name}</p>)
+                })*/}{/*
                     <li onClick={() => {setFriendPage(FriendsName)}}>{FriendsName}<br /><button onClick={() => {setShowPage(true)}}>SHOW</button></li>
                     <li onClick={() => {setFriendPage(FriendsNameTwo)}}>{FriendsNameTwo}<br /><button onClick={() => {setShowPage(true)}}>SHOW</button></li>
-                </ul>
+            */}
             </section>
 
             {/*<section id="Trending">
