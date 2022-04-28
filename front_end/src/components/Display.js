@@ -5,8 +5,10 @@ import '../index.css'
 import App from "../App";
 import Login from "./Login";
 import Home from "./Home"
-import TestApp from "./TestApp";
 import HomePage from './HomePage/HomePage';
+import Settings from './Settings';
+import CreateAccount from "./CreateAccount";
+import FriendsList from "./FriendsList";
 
 function Display() {
     return(
@@ -16,7 +18,9 @@ function Display() {
                 <Route path="/Login" element={<Login />} />
                 <Route path="/block" element={<App/>} />
                 <Route path='/Home' element={<Home />} />
-                <Route path='/Test' element={<TestApp />} /> {/* Test Route */}
+                <Route path='/Settings' element={<Settings />} />
+                <Route path='/CreateAccount' element={<CreateAccount />} />
+                <Route path='/FriendsList' element={<FriendsList />} />
             </Routes>
         </Router>
     )

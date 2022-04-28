@@ -6,17 +6,17 @@ contract Contacts {
   struct Contact {
     uint id;
     string name;
-    string phone;
+    string picone;
+    string pictwo;
+    string picthree;
   }
   
-  constructor() public {
-    createContact('Eddie Russell', 'QmcXMRbCDcPiqBQQew562mHMjvjog2pzJhyuDv8oT5KBzE');
-  }
+
   
   mapping(uint => Contact) public contacts;
   
-  function createContact(string memory _name, string memory _phone) public {
+  function createContact(string memory _name, string memory _picone, string memory _pictwo, string memory _picthree) public {
     count++;
-    contacts[count] = Contact(count, _name, _phone);
+    contacts[count] = Contact(count, _name, _picone, _pictwo, _picthree);
   }
 }

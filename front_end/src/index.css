@@ -19,7 +19,9 @@ code {
   transform: translate(-50%,-50%);
 }
 
-#Login_Logo{
+
+
+#Login_Logo img{
   border:5px green solid;
   background-color: white;
   border-radius:100%;
@@ -47,22 +49,33 @@ code {
 }
 
 #Navigation ul{
-  text-align: center;
   display: flex;
   justify-content: center;
   flex-direction: row;
-  gap: 1%;
+  gap: 3%;
   width: auto;
   background-color: green;
   padding:0;
 }
 
-#HomePageTitle{
-  font-size: 3em;
-  background-color: rgb(0, 129, 52);
-  color:white;
-  padding:.1%;
+#Navigation img{
+  height:3em;
+  width:auto;
   text-align: center;
+}
+
+#Navigation li{
+  width:auto;
+  text-align: center;
+}
+
+#Navigation #NavNames{
+  margin-bottom:0;
+  margin-top: -10%;
+}
+
+#HomePageTitle img{
+  width:105%;
 }
 
 #Navigation li{
@@ -114,6 +127,14 @@ li:hover{
   border-radius: 1em;
 }
 
+#About img{
+  width:1em;
+  float: left;
+  margin-top:11%;
+  margin-right:auto;
+  margin-left:-8%;
+}
+
 #Trending{
   display: flex;
   flex-direction: column;
@@ -135,7 +156,7 @@ li:hover{
 }
 
 #UserPics #P1{
-  margin-top:66em;
+  margin-top:131em;
 }
 
 #UserPics img{
@@ -191,17 +212,18 @@ li:hover{
 }
 
 
-#Header h2{
-  text-align: center;
-  font-size: 30px;
-
+#Header img{
+  width: 105%;
+  margin-bottom: -2%;
+  border-bottom: green solid 1px;
 }
+
 
 #HomePage #Welcome{
   display: flex;
   flex-direction: column;
   margin-top:-16px;
-  background-color: #EBFFE1;
+  background-color: rgb(135, 209, 138);
   padding-top:3em;
   padding-bottom: 10em;;
 }
@@ -256,7 +278,7 @@ li:hover{
 }
 
 #HomePage #Info{
-  background-color:rgb(135, 209, 138);
+  background-color:rgb(88, 179, 91);
   text-align: left;
   line-height: 4em;
   font-size: 20px;
@@ -324,5 +346,70 @@ li:hover{
   margin-left:20em;
   padding-bottom: 5em;
 }
+
+#CreateAccount{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color:black;
+  font-size: 1.5em;
+}
+
+#CreateAccount h4{
+  font-size: 1.3em;
+}
+
+#CreateAccount button{
+  width:50%;
+  justify-content: center;
+  margin:auto;
+  font-size: 1.5em;
+  margin-top:5%;
+  background-color: rgb(0,129,52);
+  border: none;
+  color:white;
+}
+
+#CreateAccount input{
+  width:49%;
+  justify-content: center;
+  margin:auto;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+#FriendsList h3{
+  list-style: none;
+  text-decoration: none;
+  font-size: 3em;
+  text-align: center;
+  margin-right:auto;
+}
+#FriendsList ul{
+  margin:auto;
+  padding:auto;
+}
+
+#FriendsList li{
+  list-style: none;
+  text-decoration: none;
+  font-size: 2em;
+  margin:1em;
+  margin-left:0em;
+}
+
+#FriendsList button{
+  padding:1em;
+  margin-bottom:5%;
+  border:1px black solid;
+  width:15em;
+  background-color: green;
+  border-radius: 10em;
+  color:white;
+  font-weight:bold
+}
+
+
+
 
 

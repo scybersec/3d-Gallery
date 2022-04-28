@@ -1,11 +1,8 @@
 /* Component for the Login Page */
 import React, {useState,useEffect} from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import DBox from "./3D_Background/Login3D";
-import Web3 from 'web3'
-import contract from './config.js';
-
-const contractAddress = '0x5dF57eE689dBd78975aaB78b43Ef47727AF2CbBB'
+import LoginLogo from './HomePage/LoginLogoTwo.png';
 
 
 function Login() {
@@ -16,7 +13,7 @@ function Login() {
         const {ethereum} = window;
 
         if(!ethereum) {
-            console.log("Make sure you ahve Metamask installed!")
+            console.log("Make sure you have Metamask installed!")
             return;
         }
         else{
@@ -51,9 +48,6 @@ function Login() {
         }
      }
 
-    const mintNftHandler = () => {
-        return navigate('/Home')
-     }
 
   const connectWalletButton = () => {
     return (
@@ -64,12 +58,17 @@ function Login() {
   }
 
   const mintNftButton = () => {
-    return (
-      <button onClick={mintNftHandler}>
-        Login
-      </button>
-    )
+    return navigate('/Home')
   }
+
+  useEffect(() => { // If the Account is changed the page will refresh
+    const {ethereum} = window;
+    if (ethereum){
+      window.ethereum.on('accountsChanged', () => {
+      window.location.reload();
+      })
+  }
+  })
 
   useEffect(() => {
     checkWalletIsConnected();
@@ -81,7 +80,7 @@ function Login() {
             <DBox /> {/*Imported 3D Component*/} 
 
             <section id="Login">
-                <article id="Login_Logo"></article>
+                <article id="Login_Logo"> <img src={LoginLogo} /></article>
 
                 <article id="Login_Info">
                     
